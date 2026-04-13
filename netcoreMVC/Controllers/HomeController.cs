@@ -108,7 +108,7 @@ namespace netcoreMVC.Controllers
 
         }
 
-        public async Task<IActionResult> Dashboard()
+        public ActionResult Dashboard()
         {                
          
             return View("Dashboard");
