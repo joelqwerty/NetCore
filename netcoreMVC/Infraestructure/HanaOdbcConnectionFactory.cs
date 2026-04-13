@@ -13,7 +13,7 @@ namespace netcoreMVC.Infraestructure
         public HanaOdbcConnectionFactory(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("HanaOdbc")
-                ?? throw new InvalidOperationException("No se encontró la cadena de conexión 'HanaOdbc'.");
+                ?? throw new InvalidOperationException("No se encontró la cadena de conexión 'HanaOdbc'");
         }
 
         public OdbcConnection CreateConnection()
