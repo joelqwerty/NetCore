@@ -11,12 +11,12 @@ builder.Services.AddSession();
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.LoginPath = "/Home/Login";
-        options.LogoutPath = "/Home/Logout";
-        options.ExpireTimeSpan = TimeSpan.FromHours(8);
-    });
+.AddCookie(options =>
+{
+     options.LoginPath = "/Home/Login";
+     options.LogoutPath = "/Home/Logout";
+     options.ExpireTimeSpan = TimeSpan.FromHours(8);
+});    
 
 builder.Services.AddAuthorization();
 

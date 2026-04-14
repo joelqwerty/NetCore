@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using netcoreMVC.Infraestructure;
 using netcoreMVC.Models;
 using System.Data;
 using System.Data.Odbc;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Security.Claims;
 
@@ -15,15 +17,16 @@ namespace netcoreMVC.Controllers
 {
 
     public class HomeController : Controller
-    {      
-
-        private readonly HanaOdbcConnectionFactory _connectionFactory;        
+    {
+        
+        private readonly HanaOdbcConnectionFactory _connectionFactory;
+        private readonly string _connectionString;
 
         public HomeController(HanaOdbcConnectionFactory connectionFactory)
-        {
-            _connectionFactory = connectionFactory;
-        }
-        
+        {            
+            _connectionFactory = connectionFactory;            
+        }                
+
         public ActionResult Index()
         {          
 
@@ -89,19 +92,8 @@ namespace netcoreMVC.Controllers
                     ExpiresUtc = DateTimeOffset.UtcNow.AddHours(8)
                 }
             );
-            
-            //var connection = _connectionFactory.CreateConnection();
-            //await connection.OpenAsync();
 
-            //using var command = new OdbcCommand("SELECT * FROM SMX_SRGC", connection);
-            //using var reader = await command.ExecuteReaderAsync();
-
-            //var dataTable = new DataTable();
-            //dataTable.Load(reader);
-
-            //string fr = dataTable.Rows.Count.ToString();
-
-            //using var command0 = new OdbcCommand("SELECT * FROM SMX_SRGC", connection);            
+            //using var command0 = new OdbcCommand("SELECT * FROM SMX_SRGC", connection);
             //var result = await command0.ExecuteScalarAsync();
 
             return RedirectToAction("Dashboard");

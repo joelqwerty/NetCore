@@ -1,0 +1,8 @@
+{
+  "Version": "1.0",
+  "LastModDate": "24/03/2025",
+  "DBTYPE": "HANADB",
+  "Queries": {
+    "GetCUFD": "SELECT * FROM CUFD"
+  }
+}
